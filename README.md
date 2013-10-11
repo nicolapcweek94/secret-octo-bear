@@ -1,4 +1,4 @@
-#secter-octo-bear
+#secret-octo-bear
 *by Nicolapcweek94*
 
 Just another extremely simple expenses management script.   
