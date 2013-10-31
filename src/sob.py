@@ -30,4 +30,4 @@ if options.lst == True:
   c.execute("select * from expenses order by " + options.orderby + " " + options.ordertype)
   rows = c.fetchall()
   for row in rows:
-    print(row)
+    print('On ' + str(row[0]) + ' you bought ' + str(row[1]) + ' for ' + str(row[2]) +'.')
