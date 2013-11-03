@@ -3,6 +3,7 @@
 import argparse
 import sqlite3
 import datetime
+import sys
 
 conn = sqlite3.connect('./expenses.db')
 c = conn.cursor()
@@ -23,6 +24,10 @@ parser.add_argument("-o", "--order", dest="orderby", action="store", default="da
 parser.add_argument("-t", "--type", dest="ordertype", default="asc", help="Specifies if the order is ascendent (asc) or descendent (desc). The default is asc.", metavar="asc")
 
 options = parser.parse_args()
+
+if len(sys.argv) == 1:
+    parser.print_help()
+    sys.exit(1)
 
 if options.remove != "" and options.date != "":
     c.execute('''delete from expenses where date like ? and desc like ?''', (options.date, options.remove))
